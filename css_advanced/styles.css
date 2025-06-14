@@ -1,0 +1,230 @@
+/* ===== Global Reset and Base Styles ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #fff;
+  line-height: 1.5;
+  color: #071629;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+
+/* ===== Header ===== */
+header {
+  background-image: url('images/Object.png');
+  background-size: cover;
+  padding: 2em 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  width: 100px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5em;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  text-align: center;
+  color: white;
+  padding: 3em 0;
+}
+
+.hero h1 {
+  font-size: 120px;
+  margin-bottom: 0.5em;
+}
+
+.hero p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 2em;
+}
+
+.hero button {
+  background-color: #C271FF;
+  border: none;
+  padding: 1em 2em;
+  color: white;
+  font-weight: bold;
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+.hero button:hover {
+  background-color: #a950d6;
+}
+
+/* ===== Learn Section ===== */
+.learn {
+  text-align: center;
+  padding: 5em 0;
+}
+
+.learn h2 {
+  font-size: 32px;
+  font-weight: lighter;
+  margin-bottom: 2em;
+}
+
+.learn h2 strong {
+  color: #C271FF;
+}
+
+.pros {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2em;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pro {
+  text-align: center;
+}
+
+.pro img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 1em;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.title {
+  font-style: italic;
+  font-size: 16px;
+}
+
+/* ===== FAQ Section ===== */
+.faq {
+  background-color: white;
+  padding: 5em 0;
+  text-align: center;
+}
+
+.askQ {
+  font-size: 60px;
+  font-weight: lighter;
+  margin-bottom: 2em;
+}
+
+.faq-blocks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3em;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.faq-block {
+  margin-bottom: 2em;
+}
+
+.Qest_title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #071629;
+  margin-bottom: 0.5em;
+}
+
+.qest_text {
+  font-size: 14px;
+  color: #979797;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #071629;
+  padding: 3em 0;
+  color: #979797;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.footer_logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.social_icons {
+  display: flex;
+  gap: 1em;
+}
+
+.social_icon {
+  width: 24px;
+  height: 24px;
+}
+
+#right {
+  font-size: 12px;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .header-container,
+  .footer_logo,
+  .pros,
+  .faq-blocks {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .pros {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-blocks {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 64px;
+  }
+
+  .askQ {
+    font-size: 40px;
+  }
+}

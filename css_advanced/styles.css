@@ -1,4 +1,5 @@
-/* ===== Global Reset and Base Styles ===== */
+/* =====
+Global Reset and Base Styles ===== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -18,10 +19,13 @@ body {
   padding: 0 2em;
 }
 
-/* ===== Header ===== */
+/* =====
+Header ===== */
 header {
-  background-image: url('images/Object.png');
+  /* Updated background image based on Figma (image_bea6d1.jpg) */
+  background-image: url('images/Hero_image.png');
   background-size: cover;
+  background-position: center; /* Ensure image covers well */
   padding: 2em 0;
 }
 
@@ -32,7 +36,7 @@ header {
 }
 
 .logo img {
-  width: 100px;
+  width: 100px; /* Adjust as per actual logo size if different */
 }
 
 .nav-links {
@@ -48,7 +52,8 @@ header {
   font-size: 14px;
 }
 
-/* ===== Hero Section ===== */
+/* ===== Hero
+Section ===== */
 .hero {
   text-align: center;
   color: white;
@@ -64,9 +69,19 @@ header {
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 2em;
+  display: flex; /* To make spans align horizontally */
+  justify-content: center;
+  gap: 1.5em; /* Space between words */
 }
 
-.hero button {
+.hero p span {
+    /* Individual styling for SMILES, GRIN, LAUGH if needed, otherwise inherit from .hero p */
+    /* Example: border: 1px solid white; padding: 0.2em 0.5em; */
+}
+
+
+/* Reusable button style from Hero */
+.hero-button {
   background-color: #C271FF;
   border: none;
   padding: 1em 2em;
@@ -75,15 +90,18 @@ header {
   border-radius: 30px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  display: block;
+  display: block; /* Ensures it takes full width for margin auto to work */
   margin: 0 auto;
+  text-decoration: none; /* In case it's an <a> tag */
+  transition: background-color 0.3s ease;
 }
 
-.hero button:hover {
+.hero-button:hover {
   background-color: #a950d6;
 }
 
-/* ===== Learn Section ===== */
+/* =====
+Learn Section ===== */
 .learn {
   text-align: center;
   padding: 5em 0;
@@ -119,17 +137,260 @@ header {
   margin-bottom: 1em;
 }
 
-.name {
+.pro .name { /* Added .pro for specificity */
   font-weight: bold;
   font-size: 18px;
 }
 
-.title {
+.pro .title { /* Added .pro for specificity */
   font-style: italic;
   font-size: 16px;
 }
 
-/* ===== FAQ Section ===== */
+/* ===== Quote Section ===== */
+.quote-section {
+    background-color: #C271FF;
+    padding: 5em 0;
+    color: white;
+    text-align: center;
+}
+
+.quote-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+@media (min-width: 768px) {
+    .quote-container {
+        flex-direction: row;
+        text-align: left;
+    }
+}
+
+.quote-image-wrapper img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1em;
+}
+
+.quote-content-wrapper {
+    flex: 1;
+}
+
+.quote-content-wrapper blockquote {
+    font-size: 22px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 1em;
+}
+
+.quote-author {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0.3em;
+}
+
+.quote-title {
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== Tutorials Section ===== */
+.tutorials-section {
+    background-color: white;
+    padding: 5em 0;
+    text-align: center;
+}
+
+.tutorials-section h2 {
+    font-size: 32px;
+    font-weight: lighter;
+    margin-bottom: 2em;
+}
+
+.tutorials-section h2 strong {
+    color: #C271FF;
+}
+
+.tutorial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2em;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.tutorial-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding-bottom: 1em;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-thumbnail-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+}
+
+.video-thumbnail-container img:first-child { /* The actual thumbnail image */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.play-button:hover {
+    opacity: 1;
+}
+
+.tutorial-info {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.tutorial-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #071629;
+    margin-bottom: 0.5em;
+}
+
+.tutorial-description {
+    font-size: 14px;
+    color: #979797;
+    line-height: 1.4;
+    margin-bottom: 0.8em;
+    flex-grow: 1;
+}
+
+.tutor-details {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.tutor-details img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.tutor-name {
+    font-size: 14px;
+    color: #C271FF;
+    font-weight: bold;
+}
+
+.tutorial-rating-duration {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1em 0.5em;
+    font-size: 12px;
+    color: #979797;
+    margin-top: auto; /* Push to bottom of card */
+}
+
+.star-rating {
+    color: #C271FF;
+}
+
+.inactive-star {
+    color: #ccc;
+}
+
+/* ===== Membership Section ===== */
+.membership-section {
+    background-color: #071629;
+    color: white;
+    padding: 5em 0;
+    text-align: center;
+}
+
+.membership-section h2 {
+    font-size: 32px;
+    font-weight: lighter;
+    margin-bottom: 2em;
+}
+
+.membership-section h2 strong {
+    color: #C271FF; /* For "Free" */
+}
+
+.membership-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    max-width: 1100px;
+    margin: 0 auto 3em;
+}
+
+.benefit {
+    text-align: center;
+    padding: 1em;
+}
+
+.benefit img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1em;
+    /* This filter approximates purple for a black SVG icon.
+       You might need to adjust or provide actual purple icons. */
+    filter: invert(36%) sepia(87%) saturate(3015%) hue-rotate(247deg) brightness(85%) contrast(85%);
+}
+
+.benefit h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.benefit p {
+    font-size: 14px;
+    color: #979797;
+    line-height: 1.4;
+}
+
+.membership-section .hero-button {
+    /* Reusing the hero button style for consistency */
+    margin-top: 3em; /* Add some space above the button */
+}
+
+/* ===== FAQ
+Section ===== */
 .faq {
   background-color: white;
   padding: 5em 0;
@@ -138,7 +399,7 @@ header {
 
 .askQ {
   font-size: 60px;
-  font-weight: lighter;
+  font-weight: lighter; /* Keeping user's original, but consider normal/300 if too thin */
   margin-bottom: 2em;
 }
 
@@ -152,7 +413,7 @@ header {
 }
 
 .faq-block {
-  margin-bottom: 2em;
+  margin-bottom: 2em; /* Ensures spacing between blocks, even if not last in row */
 }
 
 .Qest_title {
@@ -167,7 +428,8 @@ header {
   color: #979797;
 }
 
-/* ===== Footer ===== */
+/* =====
+Footer ===== */
 footer {
   background-color: #071629;
   padding: 3em 0;
@@ -178,6 +440,7 @@ footer {
 .footer-container {
   max-width: 700px;
   margin: 0 auto;
+  padding: 0 2em; /* Added container padding for smaller screens */
 }
 
 .footer_logo {
@@ -201,30 +464,56 @@ footer {
   font-size: 12px;
 }
 
-/* ===== Responsive Design ===== */
+/* =====
+Responsive Design ===== */
 @media (max-width: 768px) {
   .header-container,
-  .footer_logo,
-  .pros,
-  .faq-blocks {
+  .footer_logo {
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    gap: 1em; /* Add gap for spacing when stacked */
   }
 
-  .pros {
-    grid-template-columns: 1fr;
-  }
-
-  .faq-blocks {
-    grid-template-columns: 1fr;
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5em; /* Closer spacing for stacked nav links */
   }
 
   .hero h1 {
     font-size: 64px;
   }
 
+  .hero p {
+    flex-direction: column; /* Stack slogans */
+    gap: 0.5em;
+  }
+
+  .pros {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .tutorial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .membership-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-blocks {
+    grid-template-columns: 1fr;
+  }
+
   .askQ {
     font-size: 40px;
+  }
+
+  .container {
+    padding: 0 1em; /* Reduce padding on small screens */
   }
 }

@@ -1,0 +1,267 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif; /* Using a common sans-serif font */
+    font-size: 1.6rem;
+    color: var(--color-white);
+    background-color: var(--color-black);
+}
+
+a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+/* CSS Variables */
+:root {
+    --color-primary: #FF6565;
+    --color-white: #FFFFFF;
+    --color-black: #071629;
+    --max-width: 1000px;
+    --section-padding: 10rem 0;
+}
+
+/* Generic / Reusable Components */
+.container {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.section-header h2 {
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+}
+
+.section-header p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    max-width: 65rem;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 1.5rem 3rem;
+    border-radius: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease;
+}
+
+.btn:hover,
+.btn:active {
+    opacity: 0.9;
+}
+
+.grid-4-col {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+}
+
+.grid-item {
+    text-align: center;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 2rem 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Navigation */
+.nav ul {
+    display: flex;
+    gap: 4rem;
+}
+
+.nav a {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover,
+.nav a:active {
+    color: var(--color-primary);
+}
+
+.menu-toggle,
+.menu-icon {
+    display: none;
+}
+
+/* Hero Section */
+.hero {
+    background-image: linear-gradient(rgba(7, 22, 41, 0.5), rgba(7, 22, 41, 0.8)), url('./images/headphones_hero_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--color-white);
+    padding: 25rem 0 10rem 0;
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 7.2rem;
+    margin-bottom: 1rem;
+    max-width: 70rem;
+}
+
+.hero h2 {
+    font-size: 2.4rem;
+    font-weight: normal;
+    margin-bottom: 4rem;
+}
+
+.hero .btn {
+    margin-bottom: 4rem;
+}
+
+.hero p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    max-width: 65rem;
+}
+
+/* What We Do Section */
+.what-we-do {
+    padding: var(--section-padding);
+    /* A subtle background color to differentiate from pure black */
+    background-color: #081a30;
+}
+
+.what-we-do .grid-item h3 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem 0;
+}
+
+.what-we-do .grid-item p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
+.custom-icon svg {
+    color: var(--color-primary);
+    width: 80px; /* Control size of SVG */
+    height: 80px;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .grid-4-col {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        gap: 5rem;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .header-container {
+        justify-content: center;
+        position: relative;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-black);
+        padding: 2rem 0;
+        gap: 2.5rem;
+    }
+
+    .menu-icon {
+        display: block;
+        font-size: 3rem;
+        cursor: pointer;
+        position: absolute;
+        left: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .menu-toggle:checked ~ .nav {
+        display: block;
+    }
+
+    .hero {
+        padding: 15rem 0 5rem 0;
+    }
+
+    .hero h1 {
+        font-size: 4.8rem;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.4rem;
+    }
+
+    .grid-4-col {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+}

@@ -1,0 +1,201 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif; /* Using a common sans-serif font */
+    font-size: 1.6rem;
+    color: var(--color-white);
+    background-color: var(--color-black);
+}
+
+a {
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* CSS Variables */
+:root {
+    --color-primary: #FF6565;
+    --color-white: #FFFFFF;
+    --color-black: #071629;
+    --max-width: 1000px;
+}
+
+/* Container */
+.container {
+    max-width: var(--max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 2rem 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Navigation */
+.nav ul {
+    display: flex;
+    gap: 4rem;
+}
+
+.nav a {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover,
+.nav a:active {
+    color: var(--color-primary);
+}
+
+/* Menu Icon for Mobile */
+.menu-toggle,
+.menu-icon {
+    display: none; /* Hidden on desktop */
+}
+
+/* Hero Section */
+.hero {
+    /* I am using a placeholder image and a gradient overlay to match the design */
+    background-image: linear-gradient(rgba(7, 22, 41, 0.5), rgba(7, 22, 41, 0.8)), url('https://placehold.co/1200x800/222/FFF?text=Hero+Background');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--color-white);
+    padding: 25rem 0 10rem 0;
+    text-align: center;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 7.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    max-width: 70rem;
+}
+
+.hero h2 {
+    font-size: 2.4rem;
+    font-weight: normal;
+    margin-bottom: 4rem;
+}
+
+.hero .btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 1.5rem 3rem;
+    border-radius: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease;
+    margin-bottom: 4rem;
+}
+
+.hero .btn:hover,
+.hero .btn:active {
+    opacity: 0.9;
+}
+
+.hero p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    max-width: 65rem;
+}
+
+
+/* Responsive - Mobile view */
+@media screen and (max-width: 480px) {
+    .header-container {
+        justify-content: center; /* Center logo on mobile */
+        position: relative;
+    }
+
+    .nav {
+        display: none; /* Hide nav by default */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-black); /* Give menu a background */
+        padding: 2rem 0;
+        gap: 2.5rem;
+    }
+
+    .menu-icon {
+        display: block;
+        font-size: 3rem;
+        cursor: pointer;
+        position: absolute; /* Position icon relative to header container */
+        left: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Show menu when checkbox is checked */
+    .menu-toggle:checked ~ .nav {
+        display: block;
+    }
+
+    .hero {
+        padding: 15rem 0 5rem 0;
+    }
+
+    .hero h1 {
+        font-size: 4.8rem;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.4rem;
+    }
+}
